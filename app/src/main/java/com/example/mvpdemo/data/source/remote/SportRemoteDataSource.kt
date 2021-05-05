@@ -1,7 +1,9 @@
 package com.example.mvpdemo.data.source.remote
 
 import com.example.mvpdemo.data.model.Sport
+import com.example.mvpdemo.data.model.SportEntry
 import com.example.mvpdemo.data.source.SportDataSource
+import com.example.mvpdemo.data.source.remote.json.FetchData
 import com.example.mvpdemo.utils.Constant
 
 class SportRemoteDataSource: SportDataSource.Remote {
@@ -12,7 +14,7 @@ class SportRemoteDataSource: SportDataSource.Remote {
     }
 
     override fun getSportList(listener: OnFetchDataJsonListener<MutableList<Sport>>) {
-        listener.onSuccess(mutableListOf(Sport(1,"test", "urlTest", "test repo response")))
+        FetchData(listener, SportEntry.OBJECT).execute(baseUrl)
     }
 
     companion object {

@@ -21,11 +21,11 @@ class MainPresenter internal constructor(private val repository: SportRepository
     override fun getSports() {
         repository?.getSports(object: OnFetchDataJsonListener<MutableList<Sport>>{
             override fun onSuccess(data: MutableList<Sport>) {
-                Log.d(TAG, "onSuccess: $data")
+                Log.d(TAG, "onSuccess: ${data.size}")
             }
 
             override fun onError(exception: Exception?) {
-                Log.d(TAG, "onError: $exception")
+                Log.e(TAG, "onError: $exception")
             }
 
         })

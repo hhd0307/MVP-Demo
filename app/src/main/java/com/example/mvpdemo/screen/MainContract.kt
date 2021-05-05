@@ -10,8 +10,6 @@ interface MainContract {
     interface View {
         fun showSports(sports: MutableList<Sport>)
 
-        fun showLoadingSportsError()
-
         fun showErrorLoading(exception: Exception?)
     }
 

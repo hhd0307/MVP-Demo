@@ -15,17 +15,17 @@ class MainPresenter internal constructor(private val repository: SportRepository
     }
 
     override fun setView(view: MainContract.View?) {
-        this.setView(view)
+        this.view = view
     }
 
     override fun getSports() {
         repository?.getSports(object: OnFetchDataJsonListener<MutableList<Sport>>{
             override fun onSuccess(data: MutableList<Sport>) {
-                Log.d(TAG, "onSuccess: ${data.size}")
+                view?.showSports(data)
             }
 
             override fun onError(exception: Exception?) {
-                Log.e(TAG, "onError: $exception")
+                view?.showErrorLoading(exception)
             }
 
         })

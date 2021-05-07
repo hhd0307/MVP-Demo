@@ -10,22 +10,24 @@ import com.example.mvpdemo.utils.loadImage
 import kotlinx.android.synthetic.main.item_sport.view.*
 
 class MainAdapter : RecyclerView.Adapter<MainAdapter.ViewHolder?>() {
-    private val sports = mutableListOf<Sport>()
+
     private lateinit var clickListener: (Sport) -> Unit
 
-    fun registerItemRecyclerViewClickListener(onItemRecyclerViewClickListener: (Sport) -> Unit) {
-        clickListener = onItemRecyclerViewClickListener
-    }
+    private val sports = mutableListOf<Sport>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_sport, parent, false)
+            .inflate(R.layout.item_sport, parent, false)
         return ViewHolder(view, clickListener)
     }
 
     override fun getItemCount() = sports.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(sports[position])
+
+    fun registerItemRecyclerViewClickListener(onItemRecyclerViewClickListener: (Sport) -> Unit) {
+        clickListener = onItemRecyclerViewClickListener
+    }
 
     fun updateData(sports: MutableList<Sport>?) {
         sports?.let {

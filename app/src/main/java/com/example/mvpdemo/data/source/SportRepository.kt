@@ -5,6 +5,7 @@ import com.example.mvpdemo.data.source.remote.OnFetchDataJsonListener
 import com.example.mvpdemo.data.source.remote.SportRemoteDataSource
 
 class SportRepository private constructor(private val remote: SportDataSource.Remote){
+
     private object Holder {
         val INSTANCE = SportRepository(remote = SportRemoteDataSource.instance)
     }

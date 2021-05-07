@@ -20,6 +20,14 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         initData()
     }
 
+    override fun showSports(sports: MutableList<Sport>) {
+        mainAdapter.updateData(sports)
+    }
+
+    override fun showErrorLoading(exception: Exception?) {
+        Toast.makeText(applicationContext, "Loading error: $exception", Toast.LENGTH_SHORT).show()
+    }
+
     private fun initView() {
         recyclerSport.apply {
             setHasFixedSize(true)
@@ -41,13 +49,5 @@ class MainActivity : AppCompatActivity(), MainContract.View {
             setView(this@MainActivity)
             start()
         }
-    }
-
-    override fun showSports(sports: MutableList<Sport>) {
-        mainAdapter.updateData(sports)
-    }
-
-    override fun showErrorLoading(exception: Exception?) {
-        Toast.makeText(applicationContext, "Loading error: $exception", Toast.LENGTH_SHORT).show()
     }
 }

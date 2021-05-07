@@ -1,10 +1,10 @@
 package com.example.mvpdemo.data.model
 
 data class Sport(
-        val id: Int?,
-        val name: String?,
-        val thumbnail: String?,
-        val description: String?
+    val id: Int?,
+    val name: String?,
+    val thumbnail: String?,
+    val description: String?
 )
 
 object SportEntry {

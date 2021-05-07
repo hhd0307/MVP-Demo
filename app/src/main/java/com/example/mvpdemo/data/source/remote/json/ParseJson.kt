@@ -5,15 +5,13 @@ import com.example.mvpdemo.data.model.SportEntry
 import org.json.JSONObject
 
 class ParseJson {
-    private fun parseJsonSport(jsonObject: JSONObject): Sport {
-        with(jsonObject) {
-            return Sport(
-                    getInt(SportEntry.ID),
-                    getString(SportEntry.NAME),
-                    getString(SportEntry.THUMBNAIL),
-                    getString(SportEntry.DESCRIPTION)
-            )
-        }
+    private fun parseJsonSport(jsonObject: JSONObject) = jsonObject.run {
+        Sport(
+            getInt(SportEntry.ID),
+            getString(SportEntry.NAME),
+            getString(SportEntry.THUMBNAIL),
+            getString(SportEntry.DESCRIPTION)
+        )
     }
 
     fun parseJsonArray(jsonObject: JSONObject): MutableList<Sport> {

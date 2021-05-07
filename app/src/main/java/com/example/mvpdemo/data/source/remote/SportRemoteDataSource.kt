@@ -7,6 +7,7 @@ import com.example.mvpdemo.data.source.remote.json.FetchData
 import com.example.mvpdemo.utils.Constant
 
 class SportRemoteDataSource: SportDataSource.Remote {
+
     private var baseUrl = Constant.BASE_URL
 
     private object Holder {
@@ -20,5 +21,4 @@ class SportRemoteDataSource: SportDataSource.Remote {
     companion object {
         val instance: SportRemoteDataSource by lazy { Holder.INSTANCE }
     }
-
 }

@@ -12,7 +12,7 @@ class Network {
         fun getJsonFromUrl(strUrl: String?): String?{
             val url = URL(strUrl)
             val httpURLConnection = url.openConnection() as HttpURLConnection
-            httpURLConnection.apply {
+            httpURLConnection.run {
                 connectTimeout = TIME_OUT
                 readTimeout = TIME_OUT
                 requestMethod = METHOD_GET

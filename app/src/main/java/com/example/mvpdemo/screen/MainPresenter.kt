@@ -24,7 +24,6 @@ class MainPresenter internal constructor(private val repository: SportRepository
             override fun onError(exception: Exception?) {
                 view?.showErrorLoading(exception)
             }
-
         })
     }
 }

@@ -5,6 +5,7 @@ import com.example.mvpdemo.data.source.SportRepository
 import com.example.mvpdemo.data.source.remote.OnFetchDataJsonListener
 
 class MainPresenter internal constructor(private val repository: SportRepository?) : MainContract.Presenter {
+
     private var view: MainContract.View? = null
 
     override fun start() {

@@ -5,6 +5,7 @@ import com.example.mvpdemo.data.model.SportEntry
 import org.json.JSONObject
 
 class ParseJson {
+
     private fun parseJsonSport(jsonObject: JSONObject) = jsonObject.run {
         Sport(
             getInt(SportEntry.ID),

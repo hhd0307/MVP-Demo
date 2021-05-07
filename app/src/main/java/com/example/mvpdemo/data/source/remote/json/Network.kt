@@ -8,6 +8,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 class Network {
+
     companion object {
         fun getJsonFromUrl(strUrl: String?): String?{
             val url = URL(strUrl)

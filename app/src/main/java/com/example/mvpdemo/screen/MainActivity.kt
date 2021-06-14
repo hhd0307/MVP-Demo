@@ -5,26 +5,33 @@ import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
 import com.example.mvpdemo.R
+import com.example.mvpdemo.data.model.Sport
 import com.example.mvpdemo.data.source.remote.DataFetcher
 
 private const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var  fragment: SportsFragment
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        initView()
+        initView(savedInstanceState)
         initData()
     }
 
-    private fun initView() {
+    private fun initView(savedInstanceState: Bundle?) {
+        fragment = SportsFragment.newInstance()
+        val isFragmentContainerEmpty = savedInstanceState == null
+        if (isFragmentContainerEmpty) {
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.fragmentContainer, fragment)
+                .commit()
+        }
     }
 
     private fun initData() {
-        val sportLiveData = DataFetcher().fetchContents()
-        sportLiveData.observe(this, Observer {
-            Log.d(TAG, "Main activity receive: $it")
-        })
     }
 }

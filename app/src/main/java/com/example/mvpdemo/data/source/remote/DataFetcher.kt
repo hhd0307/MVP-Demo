@@ -36,7 +36,7 @@ class DataFetcher {
         sportApi = retrofit.create(ApiService::class.java)
     }
 
-    fun fetchContents(): LiveData<List<Sport>> {
+    fun fetchSports(): LiveData<List<Sport>> {
         val responseLiveData: MutableLiveData<List<Sport>> = MutableLiveData()
         val request = sportApi.fetchSports()
 
